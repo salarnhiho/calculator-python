@@ -3,7 +3,7 @@ import add
 import sub
 import mult
 import divid
-
+import aboutme  # Import the aboutme module (make sure this file exists)
 
 # Set the page config as the very first Streamlit command
 st.set_page_config(page_title="My Calculator", page_icon=":wave:", layout="wide")
@@ -11,9 +11,12 @@ st.set_page_config(page_title="My Calculator", page_icon=":wave:", layout="wide"
 def main():
     """ Main function to navigate the app. """
     st.sidebar.title("Navigation")
-    choice = st.sidebar.selectbox("Go to", ["Calculator"])
+    choice = st.sidebar.selectbox("Go to", ["Calculator", "About Me"])
 
-
+    if choice == "Calculator":
+        run_calculator()
+    elif choice == "About Me":
+        aboutme.run_about_me()  # Call the run_about_me function from aboutme.py
 
 def run_calculator():
     """ Runs calculator logic. """
